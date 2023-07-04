@@ -4,16 +4,17 @@ on:
     types: [created, edited, deleted]
 
 jobs:
-  job01:
-    name: pull request comment
-    if: contains(github.event.comment.html_url, '/pull/')
-    runs-on: [ubuntu-latest]
+  pull_request_comment:
+    name: PR comment
+    if: ${{ !contains(github.event.head_commit.message, '/pull/') }}
+    runs-on: ubuntu-latest
     steps:
-      - name: say hello
-#    if: contains(github.event.comment.body, '/support')
-#    run: |
-#      echo say hello
-#      - name: test
-#    if: contains(github.event.comment.body, '/test')
-#      run: |
-#      echo test
+      - run: |
+          echo PPPPPPPPUUUUUUULLLLLLLLL
+    else: ${{ !contains(github.event.head_commit.message, '/pull/')}}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on PR $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
