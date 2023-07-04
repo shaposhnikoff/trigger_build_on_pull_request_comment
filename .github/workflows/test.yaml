@@ -7,26 +7,26 @@ on:
 jobs:
   build_action:
     if: "!contains(github.event.head_commit.message, 'build')"
-    name: Test the action
+    name: Build Action
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - uses: suisei-cn/actions-download-file@master
         id: downloadfile
-        name: Download a file
+        name: Build Action
         with:
           url: "[API Endpoint](https://api.github.com/repos/suisei-cn/actions-download-file)"
           target: public/
           auto-match: true
   deploy_action:
     if: "!contains(github.event.head_commit.message, 'deploy')"
-    name: Test the action
+    name: Deploy Action
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - uses: suisei-cn/actions-download-file@master
         id: downloadfile
-        name: Download a file
+        name: Deploy Action
         with:
           url: "[API Endpoint](https://api.github.com/repos/suisei-cn/actions-download-file)"
           target: public/
