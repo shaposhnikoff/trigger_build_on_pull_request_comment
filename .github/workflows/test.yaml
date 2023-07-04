@@ -5,7 +5,7 @@ on:
     types: [created, edited, deleted]
 
 jobs:
-  test_the_action:
+  build_action:
     if: "!contains(github.event.head_commit.message, 'build')"
     name: Test the action
     runs-on: ubuntu-22.04
@@ -18,7 +18,7 @@ jobs:
           url: "[API Endpoint](https://api.github.com/repos/suisei-cn/actions-download-file)"
           target: public/
           auto-match: true
-  test_the_action1:
+  deploy_action:
     if: "!contains(github.event.head_commit.message, 'deploy')"
     name: Test the action
     runs-on: ubuntu-22.04
