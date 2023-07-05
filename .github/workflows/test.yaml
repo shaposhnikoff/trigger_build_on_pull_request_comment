@@ -12,7 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Hello World
+      - name: Install Requierments
+        run: pip install -r requierments.txt
+        shell: sh
+      - name: Build Action
         run: python test1.py
         shell: sh
 
